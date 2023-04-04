@@ -1,2 +1,0 @@
-var myTimeout=setTimeout(myGreeting,3e3);function myGreeting(){document.getElementById("demo").innerHTML="Happy Birthday!"}var firstGreiting=setTimeout(myGreetingFirst,5e3),myTimeoutStar=document.querySelector("#demo");function myGreetingFirst(){myTimeoutStar.innerHTML="Happy Birthday Jake!"}var button=document.querySelector("button"),onClick=function(){setTimeout((function(){alert("I love async JS!")}),2e3)};button.addEventListener("click",onClick);
-//# sourceMappingURL=test.6648ef47.js.map
