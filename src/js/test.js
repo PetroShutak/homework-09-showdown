@@ -58,31 +58,47 @@
 // });
 
 // =======================================
-// setInterval(() => {
-//   const currentDate = new Date();
-//   const min = currentDate.getMinutes();
-//   const hr = currentDate.getHours();
-//   const sec = currentDate.getSeconds();
-//   const hr_rotation = 30 * hr + min / 2; // converting current time
-//   const min_rotation = 6 * min;
-//   const sec_rotation = 6 * sec;
-//   hour.style.transform = `rotate(${hr_rotation}deg)`;
-//   minute.style.transform = `rotate(${min_rotation}deg)`;
-//   second.style.transform = `rotate(${sec_rotation}deg)`;
-// }, 1000);
+setInterval(() => {
+  const currentDate = new Date();
+  const min = currentDate.getMinutes();
+  const hr = currentDate.getHours();
+  const sec = currentDate.getSeconds();
+  const hr_rotation = 30 * hr + min / 2; // converting current time
+  const min_rotation = 6 * min;
+  const sec_rotation = 6 * sec;
+  hour.style.transform = `rotate(${hr_rotation}deg)`;
+  minute.style.transform = `rotate(${min_rotation}deg)`;
+  second.style.transform = `rotate(${sec_rotation}deg)`;
+}, 1000);
 // =======================================
+// const message = 'Ти вже виконав ДЗ?';
+// const timeoutInMilliseconds = 5000;
+// const timeoutHandler = () => {
+//     if (confirm(message)) {
+//         window.clearTimeout(timeoutHandler);
+//         alert('Тоді відпочивай');
+//         window.setTimeout(timeoutHandler, timeoutInMilliseconds);
+//     } else {
+//         window.clearTimeout(timeoutHandler);
+//         window.close();
+//     }
+// }
+
+// window.setTimeout(timeoutHandler, timeoutInMilliseconds);
+
 const message = 'Ти вже виконав ДЗ?';
-const timeoutInMilliseconds = 5000;
+const timeoutInMilliseconds = 10000;
+
 const timeoutHandler = () => {
-    if (confirm(message)) {
-        window.clearTimeout(timeoutHandler);
+    const confirmed = confirm(message);
+    if (confirmed) {
         alert('Тоді відпочивай');
         window.setTimeout(timeoutHandler, timeoutInMilliseconds);
     } else {
-        window.clearTimeout(timeoutHandler);
-        alert('Йди виконуй ДЗ!!!'); 
+        alert('То йди виконуй ДЗ!!!'); 
         window.close();
     }
 }
 
 window.setTimeout(timeoutHandler, timeoutInMilliseconds);
+
