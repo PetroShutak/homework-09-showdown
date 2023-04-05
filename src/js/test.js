@@ -41,21 +41,48 @@
 // button.addEventListener('click', onClick);
 // =======================================
 
-const startBtn = document.querySelector(".js-start");
-const stopBtn = document.querySelector(".js-stop");
-let timerId = null;
+// const startBtn = document.querySelector(".js-start");
+// const stopBtn = document.querySelector(".js-stop");
+// let timerId = null;
 
-startBtn.addEventListener("click", () => {
-  timerId = setInterval(() => {
-    console.log(`I love async JS!  ${Math.random()}`);
-  }, 1000);
-});
+// startBtn.addEventListener("click", () => {
+//   timerId = setInterval(() => {
+//     console.log(`I love async JS!  ${Math.random()}`);
+//   }, 1000);
+// });
 
 
-stopBtn.addEventListener("click", () => {
-  clearInterval(timerId);
-  console.log(`Interval with id ${timerId} has stopped!`);
-});
+// stopBtn.addEventListener("click", () => {
+//   clearInterval(timerId);
+//   console.log(`Interval with id ${timerId} has stopped!`);
+// });
 
 // =======================================
+// setInterval(() => {
+//   const currentDate = new Date();
+//   const min = currentDate.getMinutes();
+//   const hr = currentDate.getHours();
+//   const sec = currentDate.getSeconds();
+//   const hr_rotation = 30 * hr + min / 2; // converting current time
+//   const min_rotation = 6 * min;
+//   const sec_rotation = 6 * sec;
+//   hour.style.transform = `rotate(${hr_rotation}deg)`;
+//   minute.style.transform = `rotate(${min_rotation}deg)`;
+//   second.style.transform = `rotate(${sec_rotation}deg)`;
+// }, 1000);
+// =======================================
+const message = 'Ти вже виконав ДЗ?';
+const timeoutInMilliseconds = 5000;
+const timeoutHandler = () => {
+    if (confirm(message)) {
+        window.clearTimeout(timeoutHandler);
+        alert('Тоді відпочивай');
+        window.setTimeout(timeoutHandler, timeoutInMilliseconds);
+    } else {
+        window.clearTimeout(timeoutHandler);
+        alert('Йди виконуй ДЗ!!!'); 
+        window.close();
+    }
+}
 
+window.setTimeout(timeoutHandler, timeoutInMilliseconds);
