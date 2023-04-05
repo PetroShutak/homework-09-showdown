@@ -1,0 +1,2 @@
+var message="Ти вже виконав ДЗ?",timeoutInMilliseconds=5e3,timeoutHandler=function(){confirm(message)?(window.clearTimeout(timeoutHandler),alert("Тоді відпочивай"),window.setTimeout(timeoutHandler,timeoutInMilliseconds)):(window.clearTimeout(timeoutHandler),alert("Йди виконуй ДЗ!!!"),window.close())};window.setTimeout(timeoutHandler,timeoutInMilliseconds);
+//# sourceMappingURL=test.335e816d.js.map

@@ -1,2 +1,0 @@
-var startBtn=document.querySelector(".js-start"),stopBtn=document.querySelector(".js-stop"),timerId=null;startBtn.addEventListener("click",(function(){timerId=setInterval((function(){console.log("I love async JS!  ".concat(Math.random()))}),1e3)})),stopBtn.addEventListener("click",(function(){clearInterval(timerId),console.log("Interval with id ".concat(timerId," has stopped!"))}));
-//# sourceMappingURL=test.4bee0893.js.map
