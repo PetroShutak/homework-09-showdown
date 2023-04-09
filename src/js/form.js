@@ -27,10 +27,10 @@ const USER_DATA = {
 const form = document.querySelector('#login-form');
 const email = document.querySelector('input[type="email"]');
 const password = document.querySelector('input[type="password"]');
-const button = document.querySelector('#submit-button');
+const button = document.querySelector('button[type="submit"]');
 
 
-const user = JSON.parse(localStorage.getItem('user'));
+const user = JSON.parse(localStorage.getItem('user')); 
 if (user) {
     email.value = user.email;
     password.value = user.password;

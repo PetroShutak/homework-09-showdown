@@ -87,7 +87,7 @@ setInterval(() => {
 // window.setTimeout(timeoutHandler, timeoutInMilliseconds);
 
 const message = 'Ти вже виконав ДЗ?';
-const timeoutInMilliseconds = 10000;
+const timeoutInMilliseconds = 5000;
 
 const timeoutHandler = () => {
     const confirmed = confirm(message);
