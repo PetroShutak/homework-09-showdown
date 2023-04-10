@@ -1,61 +1,47 @@
-// const fetchUserFromServer = (username, onSuccess, onError) => {
-//     console.log(`Fetching data for ${username}`);
+import Notiflix from "notiflix";
   
-//     setTimeout(() => {
-//       // Change value of isSuccess variable to simulate request status
-//       const isSuccess = true;
-  
-//       if (isSuccess) {
-//         onSuccess("success value");
-//       } else {
-//         onError("error");
-//       }
-//     }, 2000);
-//   };
-  
-//   const onFetchSuccess = user => {
-//     console.log(user);
-//   };
-  
-//   const onFetchError = error => {
-//     console.error(error);
-//   };
-  
-  // fetchUserFromServer("Mango", onFetchSuccess, onFetchError);
-
-  // const fetchUserFromServer = username => {
-  //   return new Promise((resolve, reject) => {
-  //     console.log(`Fetching data for ${username}`);
-  
-  //     setTimeout(() => {
-  //       // Change value of isSuccess variable to simulate request status
-  //       const isSuccess = true;
-  
-  //       if (isSuccess) {
-  //         resolve("success value");
-  //       } else {
-  //         reject("error");
-  //       }
-  //     }, 2000);
-  //   });
-  // };
-  
-  // fetchUserFromServer("Mango")
-  //   .then(user => console.log(user))
-  //   .catch(error => console.error(error));
-
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
   if (shouldResolve) {
     // Fulfill
+    resolve({ position, delay });
   } else {
     // Reject
+    reject({ position, delay });
   }
-}
-createPromise(2, 1500)
-  .then(({ position, delay }) => {
-    console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-  })
-  .catch(({ position, delay }) => {
-    console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+}, delay);
   });
+}
+
+const form = document.querySelector('.form');
+form.addEventListener('submit', onFormSubmit);
+
+function onFormSubmit(event) {
+  event.preventDefault();
+ const  {
+    elements: { delay, step, amount },
+  } = event.currentTarget;
+  let inputDelay = Number(delay.value);
+
+  for (let i = 1; i <= amount.value; i ++ ) {
+    createPromise(i, inputDelay)
+    .then(({ position, delay }) => {
+      Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+    }).catch(({ position, delay }) => {
+      Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+    });
+    inputDelay += Number(step.value);
+    // console.log(inputDelay);
+  }
+
+  // console.log(delay.value);
+  // console.log(step.value);
+  // console.log(amount.value);
+}
+
+
+
+
+ 

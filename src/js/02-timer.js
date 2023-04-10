@@ -26,8 +26,8 @@ let remainingTime = 0; // змінна для різниці між датами
 const options = { // налаштування flatpickr
   enableTime: true, // включити час
   time_24hr: true, // 24 годинний формат
-  defaultDate: new Date(), // дата за замовчуванням
-  minuteIncrement: 1, // крок вибору хвилин
+  defaultDate: new Date(), // дата за замовчуванням (поточний час)
+  minuteIncrement: 1, // крок вибору хвилин 
   onClose(selectedDates) { // функція при закритті календаря
     onDateCheck(selectedDates); // виклик функції onDateCheck яка приймає масив з датами які були вибрані
   },
